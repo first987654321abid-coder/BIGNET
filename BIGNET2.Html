@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BIGNET - Fast & Reliable WiFi</title>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body class="font-sans text-gray-800">
+
+    <!-- 🔹 NAVBAR -->
+<header class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/10 shadow-xl">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
+
+    <!-- 🔹 Logo + Tagline -->
+    <div class="flex flex-col items-start justify-center pl-4 whitespace-nowrap">
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-500 animate-flip-in">
+        BIGNET
+      </h1>
+      <p class="text-sm md:text-base mt-1 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-pink-300 to-purple-400 animate-glow font-medium text-left overflow-hidden">
+        Pakistan’s Fastest Internet Experience ⚡&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      </p>
+    </div>
+
+    <!-- 🔹 Desktop Menu -->
+    <nav class="hidden md:flex items-center gap-10">
+      <a href="#hero" class="nav-link">🏠 Home</a>
+      <a href="#about" class="nav-link">ℹ️ About</a>
+      <a href="#features" class="nav-link">✨ Features</a>
+      <a href="#services" class="nav-link">🛠 Services</a>
+      <a href="#plans" class="nav-link">📦 Plans</a>
+      <a href="#reviews" class="nav-link">⭐ Reviews</a>
+      <a href="#coverage" class="nav-link">🌍 Coverage</a>
+      <a href="#blog" class="nav-link">📰 Blog</a>
+      <a href="#careers" class="nav-link">💼 Careers</a>
+      <a href="#contact" class="px-5 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 text-gray-900 rounded-full font-semibold shadow-lg hover:scale-105 hover:shadow-cyan-400/50 transition">
+        📞 Contact
+      </a>
+    </nav>
+
+    <!-- 🔹 Mobile Menu Button -->
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-white text-3xl focus:outline-none">☰</button>
+    </div>
+  </div>
+
+  <!-- 🔹 Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-gradient-to-br from-gray-900 via-black to-gray-800 backdrop-blur-lg border-t border-white/10 shadow-2xl py-6">
+    <nav class="flex flex-col items-center gap-6 text-lg">
+      <a href="#hero" class="nav-link">🏠 Home</a>
+      <a href="#about" class="nav-link">ℹ️ About</a>
+      <a href="#features" class="nav-link">✨ Features</a>
+      <a href="#services" class="nav-link">🛠 Services</a>
+      <a href="#plans" class="nav-link">📦 Plans</a>
+      <a href="#coverage" class="nav-link">🌍 Coverage</a>
+      <a href="#reviews" class="nav-link">⭐ Reviews</a>
+      <a href="#blog" class="nav-link">📰 Blog</a>
+      <a href="#careers" class="nav-link">💼 Careers</a>
+      <a href="#contact" class="px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:scale-105 hover:shadow-pink-400/50 transition">
+        📞 Contact
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- 🔹 Custom Styles & Animation -->
+<style>
+  .nav-link {
+    position: relative;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background: linear-gradient(to right, #06b6d4, #ec4899, #8b5cf6);
+    box-shadow: 0 0 10px #06b6d4, 0 0 20px #ec4899, 0 0 30px #8b5cf6;
+    transition: 0.4s;
+  }
+  .nav-link:hover {
+    color: #a5f3fc;
+    text-shadow: 0 0 10px #22d3ee, 0 0 20px #ec4899, 0 0 30px #8b5cf6;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* 🔹 Tagline glow animation */
+  @keyframes glow {
+    0% { opacity: 0.7; text-shadow: 0 0 5px #22d3ee; }
+    50% { opacity: 1; text-shadow: 0 0 15px #ec4899, 0 0 25px #8b5cf6; }
+    100% { opacity: 0.7; text-shadow: 0 0 5px #22d3ee; }
+  }
+  .animate-glow {
+    animation: glow 3s infinite ease-in-out;
+  }
+
+  /* 🔹 Flip entrance animation */
+  @keyframes flipIn {
+    0% { transform: rotateY(90deg); opacity: 0; }
+    100% { transform: rotateY(0deg); opacity: 1; }
+  }
+  .animate-flip-in {
+    animation: flipIn 1s ease-out forwards;
+  }
+</style>
+
+<!-- 🔹 Mobile Menu Toggle JS -->
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
+
+<!-- 🔹 HERO / HOME SECTION -->
+<section
+  id="hero"
+  class="relative h-screen flex flex-col items-center justify-center text-center text-white overflow-hidden bg-gradient-to-r from-indigo-950 via-purple-950 to-blue-900 animate-hero-landing"
+>
+  <!-- 🔹 Background Animated Blobs -->
+  <div class="absolute top-10 left-10 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+  <div class="absolute bottom-20 right-20 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-bounce"></div>
+  <div class="absolute top-40 right-1/3 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-ping"></div>
+
+  <!-- 🔹 Glowing Overlay Gradient -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30"></div>
+
+  <!-- 🔹 Hero Content -->
+  <div class="relative z-10 max-w-4xl px-6 animate-content-fade">
+    <h1
+      class="text-5xl md:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 drop-shadow-[0_0_25px_rgba(255,255,255,0.2)] animate-title-glow"
+    >
+      Experience Pakistan’s Fastest Internet
+    </h1>
+
+    <p
+      class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed tracking-wide animate-text-fade"
+    >
+      With blazing fast speeds up to
+      <span class="text-cyan-300 font-semibold">1 Gbps</span>,
+      <span class="text-pink-300 font-semibold">24/7 customer support</span>,
+      and ultra-reliable nationwide coverage —
+      <span class="text-purple-300 font-semibold">BIGNET Internet</span> keeps
+      you connected to the world at light speed ⚡
+    </p>
+
+    <!-- 🔹 CTA Buttons -->
+    <div class="flex flex-wrap justify-center gap-6 animate-buttons-rise">
+      <a
+        href="#plans"
+        class="px-8 py-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 rounded-full text-gray-900 font-bold shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:scale-110 hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] transition-all duration-500"
+      >
+        🚀 View Plans
+      </a>
+      <a
+        href="#about"
+        class="px-8 py-4 bg-white/20 backdrop-blur-md border border-white/30 rounded-full text-white font-semibold shadow-lg hover:bg-white/30 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-all duration-500"
+      >
+        ℹ️ Learn More
+      </a>
+    </div>
+  </div>
+
+  <!-- 🔹 Floating Router Image -->
+  <div class="absolute bottom-0 right-10 z-0 animate-float">
+    <img
+      src="/imges/BIGNETLOGO-removebg-preview.png"
+      alt="BIGNET Router"
+      class="w-72 md:w-[420px] drop-shadow-[0_0_35px_rgba(255,255,255,0.3)]"
+    />
+  </div>
+
+  <!-- 🔹 Highlights Stats -->
+  <div
+    class="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-6xl px-6"
+  >
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div
+        class="p-5 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] transition-all duration-500"
+      >
+        <h3 class="text-3xl font-bold text-cyan-300">1 Gbps</h3>
+        <p class="text-gray-300 text-sm">Blazing Speeds</p>
+      </div>
+      <div
+        class="p-5 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] transition-all duration-500"
+      >
+        <h3 class="text-3xl font-bold text-pink-300">24/7</h3>
+        <p class="text-gray-300 text-sm">Customer Support</p>
+      </div>
+      <div
+        class="p-5 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] transition-all duration-500"
+      >
+        <h3 class="text-3xl font-bold text-purple-300">99.9%</h3>
+        <p class="text-gray-300 text-sm">Uptime Guarantee</p>
+      </div>
+      <div
+        class="p-5 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] transition-all duration-500"
+      >
+        <h3 class="text-3xl font-bold text-green-300">500+</h3>
+        <p class="text-gray-300 text-sm">Cities Covered</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🔹 Custom Animation Styles -->
+<style>
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+
+  /* Hero Flip Landing */
+  @keyframes heroLanding {
+    0% { transform: perspective(1000px) rotateY(90deg) scale(0.8); opacity: 0; }
+    50% { transform: perspective(1000px) rotateY(-10deg) scale(1.02); opacity: 0.7; }
+    100% { transform: perspective(1000px) rotateY(0deg) scale(1); opacity: 1; }
+  }
+  .animate-hero-landing { animation: heroLanding 2s ease-out forwards; }
+
+  /* Title Glow */
+  @keyframes titleGlow {
+    0%, 100% { text-shadow: 0 0 15px #06b6d4, 0 0 25px #ec4899, 0 0 35px #8b5cf6; }
+    50% { text-shadow: 0 0 25px #22d3ee, 0 0 35px #ec4899, 0 0 50px #a855f7; }
+  }
+  .animate-title-glow { animation: titleGlow 4s infinite ease-in-out; }
+
+  /* Fade Animations */
+  @keyframes contentFade { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes textFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes buttonsRise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+  .animate-content-fade { animation: contentFade 1.8s ease-in-out 0.5s forwards; }
+  .animate-text-fade { animation: textFade 2.5s ease-in-out 1s forwards; }
+  .animate-buttons-rise { animation: buttonsRise 2s ease-in-out 1.3s forwards; }
+</style>
+    
+    <!-- 🔹 ABOUT SECTION -->
+    <section
+      id="about"
+      class="relative py-24 bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white overflow-hidden"
+    >
+      <!-- Background Glows -->
+      <div
+        class="absolute top-20 left-10 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-bounce"
+      ></div>
+
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 grid md:grid-cols-2 gap-16 items-center"
+      >
+        <!-- Left: Founder Image / Logo -->
+        <div class="relative group flex justify-center">
+          <div
+            class="absolute -inset-6 rounded-2xl bg-gradient-to-r from-cyan-500 via-pink-500 to-purple-500 blur-2xl opacity-40 group-hover:opacity-70 transition duration-700"
+          ></div>
+          <img
+            src="/imges/founderimg.png"
+            alt="Founder"
+            class="relative w-80 md:w-[400px] rounded-2xl shadow-2xl border border-white/20 group-hover:scale-105 transition duration-700 ease-in-out"
+          />
+        </div>
+
+        <!-- Right: About Content -->
+        <div>
+          <h2
+            class="text-4xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500"
+          >
+            About BIGNET
+          </h2>
+          <p class="text-lg text-gray-300 leading-relaxed mb-6">
+            Founded in <span class="text-cyan-300 font-bold">2020</span>,
+            <span class="text-pink-400 font-semibold">BIGNET Internet</span> has
+            grown into Pakistan’s fastest internet provider. Our vision is to
+            make internet
+            <span class="text-purple-400 font-bold">affordable, reliable,</span>
+            and <span class="text-cyan-400 font-bold">accessible</span> to every
+            home and business.
+          </p>
+          <p class="text-gray-400 italic mb-8">
+            "Our mission is simple — connecting Pakistan to a smarter and faster
+            future."
+          </p>
+
+          <!-- Founder Info -->
+          <div class="mb-10">
+            <h3 class="text-2xl font-bold text-cyan-300">UMAIR CEO</h3>
+            <p class="text-gray-400">Founder & CEO of BIGNET Internet</p>
+          </div>
+
+          <!-- Mission, Vision, Values -->
+          <div class="grid sm:grid-cols-3 gap-6 mb-12">
+            <div
+              class="p-6 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md shadow-lg hover:scale-105 transition"
+            >
+              <h4 class="text-lg font-semibold text-cyan-300 mb-2">
+                🚀 Mission
+              </h4>
+              <p class="text-sm text-gray-300">
+                Deliver blazing fast, reliable and affordable internet to every
+                city & town in Pakistan.
+              </p>
+            </div>
+            <div
+              class="p-6 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md shadow-lg hover:scale-105 transition"
+            >
+              <h4 class="text-lg font-semibold text-pink-300 mb-2">
+                🌍 Vision
+              </h4>
+              <p class="text-sm text-gray-300">
+                A future where every home, student, and business is digitally
+                empowered.
+              </p>
+            </div>
+            <div
+              class="p-6 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md shadow-lg hover:scale-105 transition"
+            >
+              <h4 class="text-lg font-semibold text-purple-300 mb-2">
+                💡 Values
+              </h4>
+              <p class="text-sm text-gray-300">
+                Integrity, Innovation, and Excellence in everything we provide.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🔹 Timeline Section -->
+      <div class="max-w-5xl mx-auto px-6 mt-16 relative z-10">
+        <h3
+          class="text-3xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400"
+        >
+          Our Journey
+        </h3>
+        <div class="relative border-l border-cyan-400/50 space-y-10">
+          <!-- 2020 -->
+          <div class="ml-6 relative">
+            <div
+              class="absolute -left-3 top-2 w-6 h-6 rounded-full bg-cyan-400 shadow-lg animate-pulse"
+            ></div>
+            <h4 class="text-xl font-semibold text-cyan-300">2020 - Founded</h4>
+            <p class="text-gray-300">
+              BIGNET started in Lahore with a vision to provide high-speed
+              internet to underserved areas.
+            </p>
+          </div>
+          <!-- 2021 -->
+          <div class="ml-6 relative">
+            <div
+              class="absolute -left-3 top-2 w-6 h-6 rounded-full bg-pink-400 shadow-lg animate-bounce"
+            ></div>
+            <h4 class="text-xl font-semibold text-pink-300">
+              2021 - 10,000+ Customers
+            </h4>
+            <p class="text-gray-300">
+              Rapid growth with thousands of new households and businesses
+              joining our network.
+            </p>
+          </div>
+          <!-- 2023 -->
+          <div class="ml-6 relative">
+            <div
+              class="absolute -left-3 top-2 w-6 h-6 rounded-full bg-purple-400 shadow-lg animate-ping"
+            ></div>
+            <h4 class="text-xl font-semibold text-purple-300">
+              2023 - Nationwide Expansion
+            </h4>
+            <p class="text-gray-300">
+              We expanded coverage across multiple cities and launched advanced
+              fiber services.
+            </p>
+          </div>
+          <!-- 2025 -->
+          <div class="ml-6 relative">
+            <div
+              class="absolute -left-3 top-2 w-6 h-6 rounded-full bg-green-400 shadow-lg animate-spin"
+            ></div>
+            <h4 class="text-xl font-semibold text-green-300">
+              2025 - Smart WiFi & Fiber
+            </h4>
+            <p class="text-gray-300">
+              Introducing next-gen Smart WiFi solutions and 1 Gbps Fiber-to-Home
+              connections 🚀.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- 🌟 PREMIUM FEATURES SECTION -->
+<section
+  id="features"
+  class="relative py-28 bg-gradient-to-r from-[#06060f] via-[#0b0118] to-[#040414] text-white overflow-hidden flip-on-load"
+>
+  <!-- 🔹 Animated Neon Blobs -->
+  <div
+    class="absolute top-16 left-16 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-[120px] opacity-30 animate-pulse"
+  ></div>
+  <div
+    class="absolute bottom-20 right-16 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-[120px] opacity-25 animate-bounce"
+  ></div>
+
+  <!-- 🔹 Section Heading -->
+  <div class="max-w-7xl mx-auto px-6 md:px-12 text-center relative z-10">
+    <h2
+      class="text-5xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-500 animate-glow"
+    >
+      Experience Innovation with <span class="text-cyan-400">BIGNET</span>
+    </h2>
+    <p
+      class="text-gray-300 text-lg md:text-xl mb-16 max-w-3xl mx-auto leading-relaxed"
+    >
+      Powering Pakistan with next-generation connectivity — blazing speeds,
+      unmatched reliability, and futuristic Smart WiFi technology.
+    </p>
+
+    <!-- 🔹 Features Grid -->
+    <div
+      class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 perspective-1000"
+    >
+      <!-- Feature Card -->
+      <div class="feature-card group">
+        <div class="feature-inner">
+          <div class="feature-front bg-gradient-to-br from-cyan-500/20 to-blue-900/30">
+            <div class="text-5xl mb-4">⚡</div>
+            <h3 class="text-2xl font-semibold text-cyan-300 mb-2">
+              Ultra-Fast Speeds
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Speeds up to <span class="font-bold text-cyan-400">1 Gbps</span>
+              for gaming, streaming & work without limits.
+            </p>
+          </div>
+          <div class="feature-back bg-gradient-to-br from-cyan-400/20 to-blue-500/10">
+            <h3 class="text-lg font-semibold mb-2 text-cyan-200">
+              Speed Beyond Limits
+            </h3>
+            <p class="text-gray-200 text-sm">
+              Built on state-of-the-art fiber infrastructure to ensure stable,
+              lightning-fast connections every moment.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Card -->
+      <div class="feature-card group">
+        <div class="feature-inner">
+          <div class="feature-front bg-gradient-to-br from-pink-500/20 to-purple-900/30">
+            <div class="text-5xl mb-4">🔒</div>
+            <h3 class="text-2xl font-semibold text-pink-300 mb-2">
+              Secure Connection
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Advanced encryption & protection for ultimate privacy and safety.
+            </p>
+          </div>
+          <div class="feature-back bg-gradient-to-br from-pink-400/20 to-purple-600/10">
+            <h3 class="text-lg font-semibold mb-2 text-pink-200">
+              Your Data, Your Control
+            </h3>
+            <p class="text-gray-200 text-sm">
+              Every BIGNET connection uses end-to-end security layers ensuring
+              safe browsing & protected data.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Card -->
+      <div class="feature-card group">
+        <div class="feature-inner">
+          <div class="feature-front bg-gradient-to-br from-purple-400/20 to-cyan-900/30">
+            <div class="text-5xl mb-4">🌐</div>
+            <h3 class="text-2xl font-semibold text-purple-300 mb-2">
+              Nationwide Coverage
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Trusted network in <span class="font-bold text-purple-400">500+</span>
+              cities across Pakistan.
+            </p>
+          </div>
+          <div class="feature-back bg-gradient-to-br from-purple-400/20 to-cyan-400/10">
+            <h3 class="text-lg font-semibold mb-2 text-purple-200">
+              Connected Everywhere
+            </h3>
+            <p class="text-gray-200 text-sm">
+              Expanding fast with citywide fiber coverage to bring internet to
+              every doorstep.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🌈 ANIMATIONS + STYLES -->
+<style>
+  /* Flip-on-load animation */
+  @keyframes flipIn {
+    0% {
+      transform: rotateY(90deg);
+      opacity: 0;
+    }
+    60% {
+      transform: rotateY(-15deg);
+      opacity: 0.7;
+    }
+    100% {
+      transform: rotateY(0);
+      opacity: 1;
+    }
+  }
+
+  .flip-on-load {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    opacity: 0;
+  }
+
+  .flip-on-load.visible {
+    animation: flipIn 1.4s ease-out forwards;
+  }
+
+  /* 3D card flipping */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .feature-card {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+
+  .feature-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+  }
+
+  .feature-card:hover .feature-inner {
+    transform: rotateY(180deg);
+  }
+
+  .feature-front,
+  .feature-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    backface-visibility: hidden;
+  }
+
+  .feature-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+  }
+
+  .feature-back {
+    transform: rotateY(180deg);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Glow animation for heading */
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px #06b6d4, 0 0 15px #ec4899, 0 0 25px #8b5cf6;
+    }
+    50% {
+      text-shadow: 0 0 15px #06b6d4, 0 0 30px #ec4899, 0 0 45px #8b5cf6;
+    }
+    100% {
+      text-shadow: 0 0 5px #06b6d4, 0 0 15px #ec4899, 0 0 25px #8b5cf6;
+    }
+  }
+
+  .animate-glow {
+    animation: glow 3s infinite ease-in-out alternate;
+  }
+</style>
+
+<!-- 🌟 Intersection Observer (Scroll Reveal) -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    document.querySelectorAll(".flip-on-load").forEach((el) => observer.observe(el));
+  });
+</script>
+
+    <!-- 🔹 SERVICES SECTION -->
+    <section
+      id="services"
+      class="relative py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 text-white overflow-hidden"
+    >
+      <!-- Background Glowing Blobs -->
+      <div
+        class="absolute top-10 left-0 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-bounce"
+      ></div>
+      <div
+        class="absolute top-1/3 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-ping"
+      ></div>
+
+      <div class="relative z-10 container mx-auto px-6 text-center">
+        <!-- Heading -->
+        <h2
+          class="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 drop-shadow-lg"
+        >
+          🛠 Our Services
+        </h2>
+        <p class="text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+          From homes to enterprises,
+          <span class="text-cyan-300 font-bold">BIGNET</span> delivers reliable,
+          future-ready connectivity. Our services are designed for individuals,
+          families, and businesses alike.
+        </p>
+
+        <!-- Services Grid -->
+        <div class="grid md:grid-cols-3 gap-10">
+          <!-- Service Card: Home WiFi -->
+          <div
+            class="p-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg hover:shadow-cyan-500/40 transition transform hover:scale-105"
+          >
+            <div class="text-5xl mb-4">🏠</div>
+            <h3 class="text-2xl font-bold text-cyan-300 mb-2">Home WiFi</h3>
+            <p class="text-gray-300 leading-relaxed">
+              High-speed connectivity for the entire family — stream movies in
+              4K, attend online classes, and game without lag. Designed for
+              households of all sizes.
+            </p>
+          </div>
+
+          <!-- Service Card: Business Internet -->
+          <div
+            class="p-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg hover:shadow-pink-500/40 transition transform hover:scale-105"
+          >
+            <div class="text-5xl mb-4">🏢</div>
+            <h3 class="text-2xl font-bold text-pink-400 mb-2">
+              Business Internet
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Secure and reliable fiber connections for startups and
+              enterprises. Includes <b>SLA guarantees</b>,
+              <b>priority support</b>, and bandwidth options that scale with
+              your growth.
+            </p>
+          </div>
+
+          <!-- Service Card: Enterprise Solutions -->
+          <div
+            class="p-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg hover:shadow-purple-500/40 transition transform hover:scale-105"
+          >
+            <div class="text-5xl mb-4">🌐</div>
+            <h3 class="text-2xl font-bold text-purple-400 mb-2">
+              Enterprise Solutions
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Custom internet solutions for corporates: VPNs, leased lines,
+              dedicated account managers, and enterprise-grade firewalls for
+              maximum uptime.
+            </p>
+          </div>
+
+          <!-- Service Card: Student Plans -->
+          <div
+            class="p-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg hover:shadow-green-400/40 transition transform hover:scale-105"
+          >
+            <div class="text-5xl mb-4">🎓</div>
+            <h3 class="text-2xl font-bold text-green-400 mb-2">
+              Student Plans
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Affordable and flexible packages designed for students. Perfect
+              for <b>Zoom classes</b>, <b>research</b>, and
+              <b>cloud learning</b> without interruptions.
+            </p>
+          </div>
+
+          <!-- Service Card: IoT Connectivity -->
+          <div
+            class="p-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg hover:shadow-yellow-400/40 transition transform hover:scale-105"
+          >
+            <div class="text-5xl mb-4">🤖</div>
+            <h3 class="text-2xl font-bold text-yellow-300 mb-2">
+              IoT Connectivity
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Connect your smart devices seamlessly. From <b>smart homes</b> to
+              <b>smart offices</b>, we provide secure bandwidth for the future
+              of IoT.
+            </p>
+          </div>
+
+          <!-- Service Card: Gaming Boost -->
+          <div
+            class="p-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg hover:shadow-red-500/40 transition transform hover:scale-105"
+          >
+            <div class="text-5xl mb-4">🎮</div>
+            <h3 class="text-2xl font-bold text-red-400 mb-2">Gaming Boost</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Ultra-low latency packages designed for gamers. Enjoy
+              <b>stable ping</b>, <b>lag-free streaming</b>, and a dedicated
+              gaming route for eSports.
+            </p>
+          </div>
+        </div>
+
+        <!-- Extra Note -->
+        <div class="mt-12 text-gray-400 text-sm max-w-3xl mx-auto">
+          ⚡ <span class="text-cyan-300 font-bold">Note:</span> All services are
+          powered by <b>fiber-optic infrastructure</b>, ensuring consistent
+          performance, security, and scalability.
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔹 PLANS SECTION -->
+    <section
+      id="plans"
+      class="relative py-20 bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 text-white overflow-hidden"
+    >
+      <!-- Background Glowing Blobs -->
+      <div
+        class="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-bounce"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/2 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-ping"
+      ></div>
+
+      <div class="relative z-10 container mx-auto px-6 text-center">
+        <!-- Heading -->
+        <h2
+          class="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 drop-shadow-lg"
+        >
+          💎 Our Internet Plans
+        </h2>
+        <p class="text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
+          Choose the perfect plan that fits your digital lifestyle. Whether
+          you’re a casual browser, a family of streamers, or a business looking
+          for blazing speed —
+          <span class="text-cyan-300 font-semibold">BIGNET</span> has you
+          covered.
+        </p>
+
+        <!-- Plans Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Basic Plan -->
+          <div
+            class="p-8 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg hover:shadow-cyan-500/40 transition transform hover:scale-105 flex flex-col"
+          >
+            <h3 class="text-2xl font-bold text-cyan-300 mb-2">Basic</h3>
+            <p class="text-4xl font-extrabold mb-4">
+              PKR 999 <span class="text-lg font-light">/mo</span>
+            </p>
+            <ul class="text-gray-200 space-y-2 flex-1">
+              <li>⚡ <b>50 Mbps</b> speed</li>
+              <li>📶 Unlimited Data</li>
+              <li>🛠 Free Installation</li>
+              <li>📞 Standard Support</li>
+            </ul>
+            <a
+              href="#"
+              class="mt-6 px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 text-gray-900 font-bold rounded-full shadow-lg hover:scale-110 hover:shadow-cyan-500/50 transition"
+            >
+              Choose Plan
+            </a>
+          </div>
+
+          <!-- Pro Plan (Popular) -->
+          <div
+            class="relative p-8 bg-gradient-to-br from-pink-500/20 to-purple-600/20 backdrop-blur-lg border-2 border-pink-400 rounded-2xl shadow-2xl hover:shadow-pink-500/60 transition transform hover:scale-110 flex flex-col"
+          >
+            <span
+              class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs px-4 py-1 rounded-full shadow-md animate-bounce"
+            >
+              🌟 Most Popular
+            </span>
+            <h3 class="text-2xl font-bold text-pink-400 mb-2">Pro</h3>
+            <p class="text-4xl font-extrabold mb-4">
+              PKR 1999 <span class="text-lg font-light">/mo</span>
+            </p>
+            <ul class="text-gray-200 space-y-2 flex-1">
+              <li>⚡ <b>200 Mbps</b> speed</li>
+              <li>📶 Unlimited Data</li>
+              <li>📦 Free Router</li>
+              <li>⭐ Priority Support</li>
+            </ul>
+            <a
+              href="#"
+              class="mt-6 px-6 py-3 bg-gradient-to-r from-pink-400 to-purple-500 text-white font-bold rounded-full shadow-lg hover:scale-110 hover:shadow-pink-500/50 transition"
+            >
+              Choose Plan
+            </a>
+          </div>
+
+          <!-- Business Plan -->
+          <div
+            class="p-8 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg hover:shadow-purple-500/40 transition transform hover:scale-105 flex flex-col"
+          >
+            <h3 class="text-2xl font-bold text-purple-300 mb-2">Business</h3>
+            <p class="text-4xl font-extrabold mb-4">
+              PKR 4999 <span class="text-lg font-light">/mo</span>
+            </p>
+            <ul class="text-gray-200 space-y-2 flex-1">
+              <li>⚡ <b>1 Gbps</b> speed</li>
+              <li>🔒 Static IP</li>
+              <li>👨‍💼 Dedicated Manager</li>
+              <li>📶 Enterprise-Grade Reliability</li>
+            </ul>
+            <a
+              href="#"
+              class="mt-6 px-6 py-3 bg-gradient-to-r from-purple-400 to-indigo-500 text-gray-900 font-bold rounded-full shadow-lg hover:scale-110 hover:shadow-purple-500/50 transition"
+            >
+              Choose Plan
+            </a>
+          </div>
+        </div>
+
+        <!-- Extra Note -->
+        <div class="mt-12 text-gray-400 text-sm max-w-3xl mx-auto">
+          ℹ️ <span class="text-cyan-300 font-bold">Note:</span> All plans
+          include <b>unlimited data</b>, <b>zero hidden charges</b>, and the
+          flexibility to upgrade anytime. Business users can request
+          <span class="text-pink-300 font-bold"
+            >custom enterprise packages</span
+          >
+          for VPN, static IP, and leased line solutions.
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔹 REVIEWS SECTION -->
+    <section
+      id="reviews"
+      class="relative py-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900 text-white overflow-hidden"
+    >
+      <!-- Background Glowing Blobs -->
+      <div
+        class="absolute top-0 left-10 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-0 right-10 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-bounce"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/3 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-ping"
+      ></div>
+
+      <div class="relative z-10 container mx-auto px-6 text-center">
+        <!-- Heading -->
+        <h2
+          class="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 drop-shadow-lg"
+        >
+          ⭐ What Our Customers Say
+        </h2>
+        <p class="text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
+          BIGNET Internet has transformed the digital experience for thousands
+          of users across Pakistan. From home streaming to enterprise solutions,
+          here’s what our happy customers share:
+        </p>
+
+        <!-- Review Cards -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div
+            class="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg hover:shadow-cyan-500/40 transition transform hover:scale-105"
+          >
+            <div class="flex items-center mb-4 justify-center gap-2">
+              <span class="text-yellow-400">★ ★ ★ ★ ★</span>
+            </div>
+            <p class="text-gray-200 mb-4 leading-relaxed">
+              “BIGNET changed my work-from-home experience. Lightning-fast
+              uploads and no interruptions!”
+            </p>
+            <cite class="block text-cyan-300 font-semibold">-Faseeh</cite>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg hover:shadow-pink-500/40 transition transform hover:scale-105"
+          >
+            <div class="flex items-center mb-4 justify-center gap-2">
+              <span class="text-yellow-400">★ ★ ★ ★ ★</span>
+            </div>
+            <p class="text-gray-200 mb-4 leading-relaxed">
+              “As a cafe owner, reliable internet keeps my customers happy.
+              Excellent coverage and speed.”
+            </p>
+            <cite class="block text-pink-300 font-semibold">- Omar</cite>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg hover:shadow-purple-500/40 transition transform hover:scale-105"
+          >
+            <div class="flex items-center mb-4 justify-center gap-2">
+              <span class="text-yellow-400">★ ★ ★ ★ ★</span>
+            </div>
+            <p class="text-gray-200 mb-4 leading-relaxed">
+              “Affordable and perfect for students. I can attend online classes
+              and stream effortlessly.”
+            </p>
+            <cite class="block text-purple-300 font-semibold">- Sana</cite>
+          </div>
+        </div>
+
+        <!-- Extra Note -->
+        <div class="mt-10 text-gray-400 text-sm">
+          📢 <span class="text-cyan-300 font-bold">Note:</span> Our customers’
+          satisfaction is our top priority. We continuously upgrade our network
+          to ensure
+          <span class="text-pink-300 font-bold"
+            >fast, reliable, and uninterrupted internet</span
+          >
+          across all cities.
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔹 COVERAGE SECTION -->
+    <section
+      id="coverage"
+      class="relative py-20 bg-gradient-to-r from-indigo-900 via-blue-900 to-purple-900 text-white overflow-hidden"
+    >
+      <!-- Background Blobs -->
+      <div
+        class="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-bounce"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/3 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-ping"
+      ></div>
+
+      <div class="relative z-10 container mx-auto px-6 text-center">
+        <!-- Heading -->
+        <h2
+          class="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 drop-shadow-lg"
+        >
+          🌍 Our Coverage Areas
+        </h2>
+        <p class="text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
+          BIGNET Internet is rapidly expanding across Pakistan. We’re already
+          live in major cities, with
+          <span class="text-cyan-300 font-bold"
+            >new locations added every month</span
+          >. Our mission:
+          <span class="text-pink-300 font-semibold"
+            >fast, reliable, and affordable connectivity</span
+          >
+          for everyone.
+        </p>
+
+        <!-- Coverage Cities -->
+        <div class="grid md:grid-cols-3 gap-6 mb-16">
+          <div
+            class="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg hover:shadow-cyan-500/40 transition transform hover:scale-105"
+          >
+            📶
+            <h3 class="text-xl font-semibold mt-2 text-cyan-300">Lahore</h3>
+            <p class="text-sm text-gray-300">
+              Full city coverage with dedicated fiber lines.
+            </p>
+          </div>
+          <div
+            class="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg hover:shadow-pink-500/40 transition transform hover:scale-105"
+          >
+            🌆
+            <h3 class="text-xl font-semibold mt-2 text-pink-300">Karachi</h3>
+            <p class="text-sm text-gray-300">
+              Expanding every month with new zones online.
+            </p>
+          </div>
+          <div
+            class="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg hover:shadow-purple-500/40 transition transform hover:scale-105"
+          >
+            🏛
+            <h3 class="text-xl font-semibold mt-2 text-purple-300">
+              Islamabad
+            </h3>
+            <p class="text-sm text-gray-300">
+              High-speed coverage across the capital city.
+            </p>
+          </div>
+          <div
+            class="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg hover:shadow-cyan-500/40 transition transform hover:scale-105"
+          >
+            🏭
+            <h3 class="text-xl font-semibold mt-2 text-cyan-300">Faisalabad</h3>
+            <p class="text-sm text-gray-300">
+              Business and residential high-speed plans.
+            </p>
+          </div>
+          <div
+            class="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg hover:shadow-pink-500/40 transition transform hover:scale-105"
+          >
+            🌴
+            <h3 class="text-xl font-semibold mt-2 text-pink-300">Multan</h3>
+            <p class="text-sm text-gray-300">
+              Now live with affordable packages for students.
+            </p>
+          </div>
+          <div
+            class="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg hover:shadow-purple-500/40 transition transform hover:scale-105"
+          >
+            🏔
+            <h3 class="text-xl font-semibold mt-2 text-purple-300">SDK</h3>
+            <p class="text-sm text-gray-300">
+              Rolling out fiber-backed wireless solutions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Map -->
+        <div
+          class="rounded-2xl overflow-hidden shadow-2xl border-4 border-cyan-400 mb-10"
+        >
+          <iframe
+            src="https://maps.google.com/maps?q=Pakistan&z=5&output=embed"
+            width="100%"
+            height="450"
+            class="w-full h-[450px]"
+          ></iframe>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-8">
+          <a
+            href="#contact"
+            class="px-8 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full font-bold text-white shadow-lg hover:scale-105 hover:shadow-cyan-500/50 transition"
+          >
+            🔎 Check Availability in Your City
+          </a>
+        </div>
+
+        <!-- Extra Note -->
+        <div class="mt-10 text-gray-400 text-sm">
+          <p>
+            📢 <span class="text-cyan-300 font-bold">Note:</span> Coverage is
+            expanding rapidly. If your city isn’t listed yet, stay tuned – we’re
+            bringing
+            <span class="text-pink-300 font-bold">fiber-fast internet</span>
+            near you soon!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔹 FAQ SECTION -->
+    <section
+      id="faq"
+      class="relative py-20 bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-white overflow-hidden"
+    >
+      <!-- Background Glow Blobs -->
+      <div
+        class="absolute top-0 left-20 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-0 right-20 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-bounce"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/3 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-ping"
+      ></div>
+
+      <div class="relative z-10 container mx-auto px-6">
+        <!-- Heading -->
+        <h2
+          class="text-4xl md:text-5xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 drop-shadow-lg"
+        >
+          ❓ Frequently Asked Questions
+        </h2>
+        <p
+          class="text-center text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed"
+        >
+          Got questions about
+          <span class="text-cyan-300 font-bold">BIGNET Internet</span>? We’ve
+          listed some of the most common queries. Still stuck? Our
+          <span class="text-pink-300 font-bold">24/7 support</span> team is just
+          a click away!
+        </p>
+
+        <!-- FAQ Accordion -->
+        <div class="space-y-6 max-w-3xl mx-auto">
+          <!-- Q1 -->
+          <details
+            class="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg p-6 transition hover:shadow-cyan-500/40"
+          >
+            <summary
+              class="flex justify-between items-center cursor-pointer text-lg font-semibold"
+            >
+              <span>⚡ How soon can I get connected?</span>
+              <span class="transition-transform group-open:rotate-180">⬇️</span>
+            </summary>
+            <p class="mt-4 text-gray-300">
+              Installation usually happens within
+              <span class="text-cyan-300 font-bold">24–48 hours</span>
+              after your order is confirmed. Our team ensures hassle-free setup
+              with free router configuration & speed test.
+            </p>
+          </details>
+
+          <!-- Q2 -->
+          <details
+            class="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg p-6 transition hover:shadow-pink-500/40"
+          >
+            <summary
+              class="flex justify-between items-center cursor-pointer text-lg font-semibold"
+            >
+              <span>📄 Do you require long-term contracts?</span>
+              <span class="transition-transform group-open:rotate-180">⬇️</span>
+            </summary>
+            <p class="mt-4 text-gray-300">
+              Nope! With
+              <span class="text-pink-300 font-bold">no hidden fees</span> and
+              <span class="text-cyan-300 font-bold">cancel anytime</span>
+              policy, we keep things simple and transparent.
+            </p>
+          </details>
+
+          <!-- Q3 -->
+          <details
+            class="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg p-6 transition hover:shadow-purple-500/40"
+          >
+            <summary
+              class="flex justify-between items-center cursor-pointer text-lg font-semibold"
+            >
+              <span>📶 Is the data truly unlimited?</span>
+              <span class="transition-transform group-open:rotate-180">⬇️</span>
+            </summary>
+            <p class="mt-4 text-gray-300">
+              Absolutely ✅ Every plan comes with
+              <span class="text-purple-300 font-bold">unlimited data</span>.
+              Stream, game, work, or binge without worrying about limits.
+            </p>
+          </details>
+
+          <!-- Q4 -->
+          <details
+            class="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg p-6 transition hover:shadow-cyan-500/40"
+          >
+            <summary
+              class="flex justify-between items-center cursor-pointer text-lg font-semibold"
+            >
+              <span>🛠 What support do you offer?</span>
+              <span class="transition-transform group-open:rotate-180">⬇️</span>
+            </summary>
+            <p class="mt-4 text-gray-300">
+              Our
+              <span class="text-cyan-300 font-bold"
+                >24/7 local support team</span
+              >
+              is always available via phone, live chat, and email. Plus, we
+              provide remote troubleshooting & on-site visits when required.
+            </p>
+          </details>
+
+          <!-- Q5 -->
+          <details
+            class="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg p-6 transition hover:shadow-pink-500/40"
+          >
+            <summary
+              class="flex justify-between items-center cursor-pointer text-lg font-semibold"
+            >
+              <span>🔒 Is my data safe on your network?</span>
+              <span class="transition-transform group-open:rotate-180">⬇️</span>
+            </summary>
+            <p class="mt-4 text-gray-300">
+              Yes! With
+              <span class="text-pink-300 font-bold">WPA3 encryption</span>,
+              <span class="text-purple-300 font-bold">firewall protection</span
+              >, and
+              <span class="text-cyan-300 font-bold">real-time monitoring</span>,
+              your browsing remains private and secure.
+            </p>
+          </details>
+        </div>
+
+        <!-- Extra Notes -->
+        <div class="mt-16 max-w-3xl mx-auto text-center text-sm text-gray-400">
+          <p>
+            📌 <span class="text-cyan-300 font-bold">Tip:</span> If your
+            question isn’t listed, reach us at
+            <a
+              href="mailto:support@bignet.pk"
+              class="underline hover:text-cyan-300"
+              >support@bignet.pk</a
+            >
+          </p>
+          <p>
+            🔒 <span class="text-pink-300 font-bold">Privacy Promise:</span> We
+            never share your personal data. All support interactions are fully
+            confidential.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔹 BLOG SECTION -->
+    <section
+      id="blog"
+      class="relative py-20 bg-gradient-to-r from-indigo-900 via-blue-900 to-purple-900 text-white overflow-hidden"
+    >
+      <!-- Background Glow Blobs -->
+      <div
+        class="absolute top-10 left-10 w-72 h-72 bg-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-10 right-20 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-bounce"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/3 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-ping"
+      ></div>
+
+      <div class="relative z-10 container mx-auto px-6">
+        <!-- Heading -->
+        <h2
+          class="text-4xl md:text-5xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 drop-shadow-lg"
+        >
+          📰 Latest News & Updates
+        </h2>
+        <p
+          class="text-center text-gray-300 max-w-2xl mx-auto mb-16 leading-relaxed"
+        >
+          Stay updated with
+          <span class="text-cyan-300 font-bold">BIGNET’s</span> latest news,
+          product launches, and technology upgrades. Read expert insights and
+          stories from our team shaping the
+          <span class="text-pink-300 font-bold">future of internet</span>.
+        </p>
+
+        <!-- Blog Cards -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Blog Post 1 -->
+          <article
+            class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-cyan-500/50 transition"
+          >
+            <img
+              src="https://source.unsplash.com/400x250/?internet,technology"
+              alt="Student Discount Plans"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <span
+                class="inline-block text-xs px-3 py-1 rounded-full bg-cyan-400/20 text-cyan-300 mb-3"
+                >Student Plans</span
+              >
+              <h3 class="text-xl font-bold mb-3">
+                🎓 New Student Discount Packages
+              </h3>
+              <p class="text-sm text-gray-300 mb-4">
+                Affordable packages launched for students. Perfect for online
+                learning, research, and virtual classrooms.
+              </p>
+              <div
+                class="flex justify-between items-center text-xs text-gray-400"
+              >
+                <span>✍️ By Admin</span>
+                <span>📅 Jan 20, 2025 • ⏱ 3 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Blog Post 2 -->
+          <article
+            class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-pink-500/50 transition"
+          >
+            <img
+              src="https://source.unsplash.com/400x250/?wifi,router"
+              alt="Coverage Expansion"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <span
+                class="inline-block text-xs px-3 py-1 rounded-full bg-pink-400/20 text-pink-300 mb-3"
+                >Coverage</span
+              >
+              <h3 class="text-xl font-bold mb-3">🌍 5 New Cities Connected</h3>
+              <p class="text-sm text-gray-300 mb-4">
+                AurSpeed is now available in Multan, Sialkot, Quetta, Hyderabad,
+                and Gujranwala. Expansion continues nationwide.
+              </p>
+              <div
+                class="flex justify-between items-center text-xs text-gray-400"
+              >
+                <span>✍️ By Omar (Tech Writer)</span>
+                <span>📅 Feb 02, 2025 • ⏱ 4 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Blog Post 3 -->
+          <article
+            class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-purple-500/50 transition"
+          >
+            <img
+              src="https://source.unsplash.com/400x250/?fiber,network"
+              alt="Tech Upgrade"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <span
+                class="inline-block text-xs px-3 py-1 rounded-full bg-purple-400/20 text-purple-300 mb-3"
+                >Technology</span
+              >
+              <h3 class="text-xl font-bold mb-3">
+                ⚙ Major Fiber-to-Home Upgrade
+              </h3>
+              <p class="text-sm text-gray-300 mb-4">
+                We are upgrading our infrastructure with next-gen fiber networks
+                to deliver blazing-fast connectivity.
+              </p>
+              <div
+                class="flex justify-between items-center text-xs text-gray-400"
+              >
+                <span>✍️ By Ayesha (Engineer)</span>
+                <span>📅 Feb 10, 2025 • ⏱ 5 min read</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Tags + CTA -->
+        <div class="mt-16 text-center">
+          <h4 class="text-lg font-semibold mb-4 text-gray-300">
+            Popular Tags:
+          </h4>
+          <div class="flex flex-wrap justify-center gap-3 mb-10">
+            <span
+              class="px-4 py-2 bg-white/10 rounded-full border border-white/20 text-sm hover:scale-105 transition"
+              >#WiFi</span
+            >
+            <span
+              class="px-4 py-2 bg-white/10 rounded-full border border-white/20 text-sm hover:scale-105 transition"
+              >#Internet</span
+            >
+            <span
+              class="px-4 py-2 bg-white/10 rounded-full border border-white/20 text-sm hover:scale-105 transition"
+              >#Fiber</span
+            >
+            <span
+              class="px-4 py-2 bg-white/10 rounded-full border border-white/20 text-sm hover:scale-105 transition"
+              >#Pakistan</span
+            >
+            <span
+              class="px-4 py-2 bg-white/10 rounded-full border border-white/20 text-sm hover:scale-105 transition"
+              >#BIGNET</span
+            >
+          </div>
+          <a
+            href="#all-blogs"
+            class="px-8 py-3 bg-gradient-to-r from-cyan-400 to-pink-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition"
+          >
+            🔗 View All Articles
+          </a>
+        </div>
+
+        <!-- Detailing Note -->
+        <div class="mt-12 max-w-3xl mx-auto text-center text-sm text-gray-400">
+          <p>
+            📌 <span class="text-cyan-300 font-bold">Disclaimer:</span> Articles
+            represent the views of BIGNET’s team and industry experts.
+            Information is accurate at time of publishing but subject to
+            updates.
+          </p>
+          <p>
+            🔒 <span class="text-pink-300 font-bold">Privacy:</span> We respect
+            user privacy. Comments and newsletter signups are stored securely
+            and never sold to third parties.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔹 CAREERS SECTION -->
+    <section
+      id="careers"
+      class="relative py-20 bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 text-white overflow-hidden"
+    >
+      <!-- Background Glow Blobs -->
+      <div
+        class="absolute top-0 left-10 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-0 right-10 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-bounce"
+      ></div>
+      <div
+        class="absolute top-1/3 right-1/4 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-ping"
+      ></div>
+
+      <div class="relative z-10 container mx-auto px-6">
+        <!-- Heading -->
+        <h2
+          class="text-4xl md:text-5xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 drop-shadow-lg"
+        >
+          🚀 Careers at BIGNET
+        </h2>
+        <p
+          class="text-center text-gray-300 text-lg max-w-2xl mx-auto mb-16 leading-relaxed"
+        >
+          Be part of Pakistan’s
+          <span class="text-cyan-300 font-bold"
+            >fastest growing internet company</span
+          >. At <span class="text-pink-300 font-bold">BIGNET</span>, we don’t
+          just provide internet, we connect people to endless opportunities.
+          Join us and build the
+          <span class="text-purple-300 font-bold"
+            >future of digital Pakistan</span
+          >.
+        </p>
+
+        <!-- Job Cards -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Job 1 -->
+          <div
+            class="p-6 bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg border border-white/20 hover:scale-105 hover:shadow-cyan-500/50 transition"
+          >
+            <h3 class="text-xl font-bold text-cyan-300 mb-3">
+              👨‍💻 Network Engineer
+            </h3>
+            <p class="text-sm text-gray-300 mb-4">Lahore Office • Full-time</p>
+            <ul class="text-gray-200 text-sm mb-4 space-y-2">
+              <li>⚡ Manage and troubleshoot network systems</li>
+              <li>📡 Ensure 99.9% uptime for customers</li>
+              <li>🔧 Work with fiber and wireless technologies</li>
+            </ul>
+            <a
+              href="#contact"
+              class="block text-center py-3 rounded-lg font-semibold bg-gradient-to-r from-cyan-400 to-blue-500 text-gray-900 shadow-lg hover:scale-105 hover:shadow-cyan-500/50 transition"
+            >
+              Apply Now
+            </a>
+          </div>
+
+          <!-- Job 2 -->
+          <div
+            class="p-6 bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg border border-white/20 hover:scale-105 hover:shadow-pink-500/50 transition"
+          >
+            <h3 class="text-xl font-bold text-pink-300 mb-3">
+              📞 Customer Support
+            </h3>
+            <p class="text-sm text-gray-300 mb-4">Karachi Office • Full-time</p>
+            <ul class="text-gray-200 text-sm mb-4 space-y-2">
+              <li>🤝 Help customers with queries & complaints</li>
+              <li>📢 Provide technical & billing support</li>
+              <li>💡 Excellent communication required</li>
+            </ul>
+            <a
+              href="#contact"
+              class="block text-center py-3 rounded-lg font-semibold bg-gradient-to-r from-pink-400 to-purple-500 text-white shadow-lg hover:scale-105 hover:shadow-pink-500/50 transition"
+            >
+              Apply Now
+            </a>
+          </div>
+
+          <!-- Job 3 -->
+          <div
+            class="p-6 bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg border border-white/20 hover:scale-105 hover:shadow-purple-500/50 transition"
+          >
+            <h3 class="text-xl font-bold text-purple-300 mb-3">
+              📢 Marketing Executive
+            </h3>
+            <p class="text-sm text-gray-300 mb-4">
+              Islamabad Office • Full-time
+            </p>
+            <ul class="text-gray-200 text-sm mb-4 space-y-2">
+              <li>🎯 Run digital campaigns & social media</li>
+              <li>📊 Develop strategies for brand awareness</li>
+              <li>🤝 Work with cross-functional teams</li>
+            </ul>
+            <a
+              href="#contact"
+              class="block text-center py-3 rounded-lg font-semibold bg-gradient-to-r from-purple-400 to-cyan-400 text-white shadow-lg hover:scale-105 hover:shadow-purple-500/50 transition"
+            >
+              Apply Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Extra Detailing -->
+        <div
+          class="mt-16 max-w-4xl mx-auto text-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-8 shadow-lg text-sm text-gray-300"
+        >
+          <p class="mb-3">
+            ✨
+            <span class="text-cyan-300 font-bold"
+              >Equal Opportunity Employer:</span
+            >
+            At BIGNET, we celebrate diversity and are committed to creating an
+            inclusive workplace for all.
+          </p>
+          <p class="mb-3">
+            🔒 <span class="text-pink-300 font-bold">Privacy First:</span>
+            All applications are kept confidential and stored securely. We never
+            share applicant data with third parties.
+          </p>
+          <p class="mb-3">
+            📅
+            <span class="text-purple-300 font-bold">Hiring Timeline:</span>
+            Applications are reviewed within
+            <span class="text-cyan-300 font-bold">7 working days</span>. Only
+            shortlisted candidates will be contacted.
+          </p>
+          <p class="italic text-gray-400">
+            For career-related queries, contact us at
+            <span class="text-cyan-300">careers@bignet.pk</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔹 CONTACT SECTION WITH ANIMATIONS -->
+    <section
+      id="contact"
+      class="relative py-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900 text-white overflow-hidden"
+    >
+      <!-- Background Glow Effects -->
+      <div
+        class="absolute top-20 left-10 w-72 h-72 bg-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-20 right-20 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-bounce"
+      ></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <!-- Title -->
+        <h2
+          data-aos="fade-up"
+          class="text-5xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 drop-shadow-lg"
+        >
+          Get In Touch With BIGNET 🚀
+        </h2>
+        <p
+          data-aos="fade-up"
+          data-aos-delay="200"
+          class="text-center max-w-2xl mx-auto mb-12 text-gray-300 text-lg leading-relaxed"
+        >
+          Have questions or need help? Our team is always ready to assist you.
+          Fill out the form below or reach us directly — we’ll get back to you
+          within 24 hours.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- 🔹 Contact Form -->
+          <div
+            data-aos="fade-right"
+            class="bg-white/10 backdrop-blur-lg p-10 rounded-2xl shadow-2xl border border-white/20 hover:scale-105 transition"
+          >
+            <h3 class="text-3xl font-bold mb-6 text-cyan-300">
+              📧 Send Us a Message
+            </h3>
+            <form class="space-y-6">
+              <div>
+                <label class="block mb-1 text-sm text-gray-300"
+                  >Full Name</label
+                >
+                <input
+                  type="text"
+                  placeholder="Name";
+                  class="w-full p-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-400"
+                />
+              </div>
+              <div>
+                <label class="block mb-1 text-sm text-gray-300"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  placeholder="example@mail.com"
+                  class="w-full p-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-400 focus:ring-2 focus:ring-pink-400"
+                />
+              </div>
+              <div>
+                <label class="block mb-1 text-sm text-gray-300">Message</label>
+                <textarea
+                  rows="4"
+                  placeholder="Write your message..."
+                  class="w-full p-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-400"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full py-3 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-gray-900 font-bold shadow-lg hover:scale-105 hover:shadow-cyan-500/50 transition"
+              >
+                🚀 Submit Request
+              </button>
+            </form>
+          </div>
+
+          <!-- 🔹 Contact Info -->
+          <div
+            data-aos="fade-left"
+            class="bg-white/10 backdrop-blur-lg p-10 rounded-2xl shadow-2xl border border-white/20 hover:scale-105 transition"
+          >
+            <h3 class="text-3xl font-bold mb-6 text-pink-300">
+              📞 Contact Information
+            </h3>
+            <ul class="space-y-4 text-lg">
+              <li>📧 <b>Email:</b>umairsdk37@gmail.com</li>
+              <li>📞 <b>Phone:</b> +92 03018675175</li>
+              <li>💬 <b>WhatsApp:</b> +92 03018675175</li>
+              <li>📍 <b>Office:</b> SadiqAbad,Pakistan</li>
+              <li>⏰ <b>Working Hours:</b> Mon–Sat, 9 AM – 8 PM</li>
+            </ul>
+            <iframe
+              data-aos="zoom-in"
+              data-aos-delay="400"
+              src="https://maps.google.com/maps?q=Lahore,Pakistan&z=12&output=embed"
+              class="w-full h-56 mt-6 rounded-lg shadow-md border border-white/20"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- 🔹 Privacy Note -->
+        <p
+          data-aos="fade-up"
+          data-aos-delay="600"
+          class="text-center mt-12 text-sm text-gray-400"
+        >
+          🔒 Your data is safe with us. Read our
+          <a href="#" class="text-cyan-300 hover:underline">Privacy Policy</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- AOS Library for Animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    </script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+  </body>
+</html>
